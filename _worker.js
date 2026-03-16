@@ -13,13 +13,13 @@
 // - 只有列出的域名会被处理，未列出的域名将返回 400 错误。
 // 示例：const ALLOWED_HOSTS = ['github.com', 'docker.io'];
 const ALLOWED_HOSTS = [
-  'quay.io',
-  'gcr.io',
-  'k8s.gcr.io',
-  'registry.k8s.io',
-  'ghcr.io',
-  'docker.cloudsmith.io',
-  'registry-1.docker.io',
+//  'quay.io',
+//  'gcr.io',
+//  'k8s.gcr.io',
+//  'registry.k8s.io',
+//  'ghcr.io',
+//  'docker.cloudsmith.io',
+//  'registry-1.docker.io',
   'github.com',
   'api.github.com',
   'raw.githubusercontent.com',
@@ -42,6 +42,7 @@ const ALLOWED_PATHS = [
   'library',   // Docker Hub 官方镜像仓库的命名空间
   'user-id-1',
   'user-id-2',
+  'SagerNet',
 ];
 
 // 用户配置区域结束 =================================
