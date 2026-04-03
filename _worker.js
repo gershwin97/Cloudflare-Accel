@@ -40,9 +40,9 @@ const RESTRICT_PATHS = true;
 // 示例：const ALLOWED_PATHS = ['library', 'my-user', 'my-repo'];
 const ALLOWED_PATHS = [
   'library',   // Docker Hub 官方镜像仓库的命名空间
-  'lyc8503',
-  'SagerNet',
+  'senshinya',
   'gershwin97',
+  'SagerNet',
 ];
 
 // 用户配置区域结束 =================================
