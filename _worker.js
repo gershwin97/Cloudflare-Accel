@@ -13,13 +13,13 @@
 // - 只有列出的域名会被处理，未列出的域名将返回 400 错误。
 // 示例：const ALLOWED_HOSTS = ['github.com', 'docker.io'];
 const ALLOWED_HOSTS = [
-//  'quay.io',
-//  'gcr.io',
-//  'k8s.gcr.io',
-//  'registry.k8s.io',
-//  'ghcr.io',
-//  'docker.cloudsmith.io',
-//  'registry-1.docker.io',
+  //  'quay.io',
+  //  'gcr.io',
+  //  'k8s.gcr.io',
+  //  'registry.k8s.io',
+  //  'ghcr.io',
+  //  'docker.cloudsmith.io',
+  //  'registry-1.docker.io',
   'github.com',
   'api.github.com',
   'raw.githubusercontent.com',
@@ -31,7 +31,7 @@ const ALLOWED_HOSTS = [
 // - 设置为 true：只允许 ALLOWED_PATHS 中定义的路径关键字。
 // - 设置为 false：允许 ALLOWED_HOSTS 中的所有路径。
 // 示例：const RESTRICT_PATHS = true;
-const RESTRICT_PATHS = false;
+const RESTRICT_PATHS = true;
 
 // ALLOWED_PATHS: 定义 GitHub 和 Docker 的允许路径关键字。
 // - 添加新关键字：加入数组，如 'user-id-3' 或 'my-repo'。
@@ -40,9 +40,9 @@ const RESTRICT_PATHS = false;
 // 示例：const ALLOWED_PATHS = ['library', 'my-user', 'my-repo'];
 const ALLOWED_PATHS = [
   'library',   // Docker Hub 官方镜像仓库的命名空间
-  'user-id-1',
-  'user-id-2',
+  'lyc8503',
   'SagerNet',
+  'gershwin97',
 ];
 
 // 用户配置区域结束 =================================
@@ -684,13 +684,13 @@ async function handleRequest(request, redirectCount = 0) {
         const EMPTY_BODY_SHA256 = getEmptyBodySHA256();
         const redirectHeaders = new Headers(request.headers);
         redirectHeaders.set('Host', new URL(redirectUrl).hostname);
-        
+
         // 对于任何重定向，都添加必要的AWS头（如果需要）
         if (isAmazonS3(redirectUrl)) {
           redirectHeaders.set('x-amz-content-sha256', EMPTY_BODY_SHA256);
           redirectHeaders.set('x-amz-date', new Date().toISOString().replace(/[-:T]/g, '').slice(0, -5) + 'Z');
         }
-        
+
         if (response.headers.get('Authorization')) {
           redirectHeaders.set('Authorization', response.headers.get('Authorization'));
         }
